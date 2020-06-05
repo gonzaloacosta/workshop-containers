@@ -19,7 +19,7 @@ Workshop de adminsitracion de Openshift de 0 a 100 en 5 dias.
 
 ```
 oc new-app osevg/workshopper:latest --name=workshop-containers \
-    -e WORKSHOPS_URLS=https://gitlab.semperti.local/gonzalo.acosta/raw/workshop-containers/_modules.yml
+    -e WORKSHOPS_URLS=http://gitlab.semperti.local/gonzalo.acosta/workshop-containers/raw/master/_modules.yml
 oc expose svc/workshop-containers
 ```
 
