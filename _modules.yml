@@ -1,26 +1,12 @@
 config:
     renderer: markdown
-    
+
 modules:
-  01_intro:
-    name: Intro Contenedores
-  02_technologies:
-    name: Tecnologias de Contenedores
-  03_architecture:
-    name: Arquitectura de Contenedores
-  04_orchestration:
-    name: Kubernetes and Openshift
-  05_demo_deploy:
-    name: Demo Deploy Apps con Podman
-  06_life_cycle_con_podman:
-    name: Container Lifecycle con Podman
-  07_persistent_storage:
-    name: Persistent Storage
-  08_networking:
-    name: Networking
-  09_image_registries:
-    name: Images and Registries
-  10_dockerfile:
-    name: Dockerfile and Custom Images
-  11_resenas:
-    name: Resenas
+  lab1:
+    name: Getting Started
+  lab2:
+    name: Explore OpenShift
+  lab3:
+    name: Create an Application
+    requires:
+      - lab2
