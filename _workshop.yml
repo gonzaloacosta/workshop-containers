@@ -5,11 +5,11 @@ content:
   url: https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master
 
 vars:
-  OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/3.7"
-  OPENSHIFT_MASTER_URL: "http://192.168.1.100:8443"
-  OPENSHIFT_USERNAME: "developer"
-  OPENSHIFT_PASSWORD: "password"
-  JAVA_APP: true
+  OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/4.4"
+  OPENSHIFT_MASTER_URL: "https://api.ocp4.labs.semperti.local:6443"
+  OPENSHIFT_USERNAME: "admin"
+  OPENSHIFT_PASSWORD: "redhat123!"
+  #JAVA_APP: true
   
 modules:
   activate:
