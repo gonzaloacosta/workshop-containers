@@ -13,14 +13,14 @@ vars:
   
 modules:
   activate:
-  - 01_intro
-  - 02_technologies
-  - 03_architecture
-  - 04_orchestration
-  - 05_demo_deploy
-  - 06_life_cycle_con_podman
-  - 07_persistent_storage
-  - 08_networking
-  - 09_image_registries
-  - 10_custom_dockerfile
-  - 11_resenas
+  - cap1-intro
+  - cap2-technologies
+  - cap3-architecture
+  - cap4-orchestration
+  - cap05-demo-deploy
+  - cap06-life-cycle-con-podman
+  - cap07-persistent-storage
+  - cap08-networking
+  - cap09-image-registries
+  - cap10-custom-dockerfile
+  - cap11-resenas
