@@ -2,10 +2,10 @@ config:
     renderer: markdown
 
 modules:
-  lab1:
+  intro:
     name: Getting Started
-  lab2:
-    name: Explore OpenShift
+  technologies:
+    name: Container Technologies
   lab3:
     name: Create an Application
     requires:
