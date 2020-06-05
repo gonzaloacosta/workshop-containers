@@ -1,6 +1,9 @@
 id: "workshop"
 name: "Worshop de Contenedores"
 
+content:
+  url: https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master
+
 vars:
   OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/4.3"
   OPENSHIFT_MASTER_URL: "http://api.ocp4.labs.semperti.local:8443"
