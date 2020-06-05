@@ -1,4 +1,5 @@
-## 1.3. Arquitectura de contendores <a name="1.2"></a>
+## Arquitectura de contendores
+
 En el 2001 linux introduce el proyecto de vServers en la comunidad. vServers fue la primer intento de ejecutar un conjunto de procesos dentro de un unico servidor con un alto nivel de aislamiento. Con los vServers la idea de aislar procesos marco el camino para la evolucion de una serie de features del kernel de linux:
 
 - *Namespaces*: El kernel puede aislar recursos especificos de sistemas, usualmente visibles por todos los procesos y colocarlos dentro de un espacio de nombres. Dentro del espacio de nombres solo los procesos que son mienbros pueden ver los recursos. Los espacios de nombre pueden incluir espacios de red, interfaces, process id, puntos de montaje, recursos de IPC y informacion del host de sistem.

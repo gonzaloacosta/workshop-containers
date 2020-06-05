@@ -1,4 +1,4 @@
-## 1.2. Tecnologia de contenedores <a name="1.1"></a>
+## Tecnologia de contenedores
 
 De forma habitual las aplicaciones de software dependen de librerias, archivos de configuracion y servicios que son provistos por el ambiente donde corren (environment runtime). La forma tradicional es instalar el environment runtime y todas las dependencias en la maquina virtual o equipo fisico donde va a ser alojada la aplicacion. Por ejemplo, instalar el runtime de python 3.6, pip y todas sus dependencias.
 

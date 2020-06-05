@@ -1,4 +1,4 @@
-## 1.4. Kubernetes and Openshift <a name="1.3"></a>
+## Kubernetes and Openshift
 
 ### Limitaciones en el uso de contenedores
 

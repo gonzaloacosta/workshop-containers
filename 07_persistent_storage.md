@@ -1,4 +1,4 @@
-## 1.6. Persistent Storage <a name="1.6"></a>
+## Persistent Storage
 
 Se dice que el storage de los contenedores es efimero, esto significa que el contenido no persiste tras un reinicio. Las aplicaciones en contenedores asumen que el storage sobre el cual trabajan esta vacio, esto permite que los contenedores puedan destruirse y crearse inesperadamente.
 

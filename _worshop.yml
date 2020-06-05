@@ -1,4 +1,4 @@
-id: "workshop"
+id: "containers"
 name: "Worshop de Contenedores"
 
 content:
@@ -13,8 +13,8 @@ vars:
   
 modules:
   activate:
-  - 01_intro
-  - 02_technologies
+  - 01_intro.md
+  - 02_technologies.md
   - 03_architecture
   - 04_orchestration
   - 05_demo_deploy

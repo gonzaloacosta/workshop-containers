@@ -1,4 +1,4 @@
-## 1.5. Ciclo de vida de contenedores con podman
+## Ciclo de vida de contenedores con podman
 
 *Podman managing subcommands*
 ![Podman managing subcommands](images/podman-1.png)
