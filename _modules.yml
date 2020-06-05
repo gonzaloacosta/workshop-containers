@@ -2,9 +2,9 @@ config:
     renderer: markdown
     
 modules:
-  01_intro.md:
+  01_intro:
     name: Intro Contenedores
-  02_technologies.md:
+  02_technologies:
     name: Tecnologias de Contenedores
   03_architecture:
     name: Arquitectura de Contenedores

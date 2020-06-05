@@ -13,8 +13,8 @@ vars:
   
 modules:
   activate:
-  - 01_intro.md
-  - 02_technologies.md
+  - 01_intro
+  - 02_technologies
   - 03_architecture
   - 04_orchestration
   - 05_demo_deploy
