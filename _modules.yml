@@ -1,15 +1,15 @@
 modules:
-  01_intro:
+  cap1-intro:
     name: Introduccion al Workshop
-  02_technologies:
+  cap2-technologies:
     name: Tecnologia de Contenedores
-  03_architecture:
+  cap3-architecture:
     name: Arquitectura de Contenedores
-  04_orchestration:
+  cap4-orchestration:
     name: Kubernetes and Openshift
-  05_demo_deploy:
+  cap5_demo_deploy:
     name: Demo Deploy Apps con Podman
-  06_life_cycle_con_podman:
+  cap6_life_cycle_con_podman:
     name: Container Lifecycle con Podman
   07_persistent_storage:
     name: Persistent Storage
