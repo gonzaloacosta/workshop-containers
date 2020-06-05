@@ -1,14 +1,14 @@
-Openshift Workshop Administracion 
-=================================
+Workshop Admistracion de Contenedores con Podman 
+================================================
 
-Workshop de adminsitracion de Openshift de 0 a 100 en 5 dias.
+Workshop de adminsitracion de contenedores con Podman 
 
 # Tabla de Contenido
 1. [Intro](./01-intro.adoc)
 2. [Tecnologia de Contenedores](./02-technologies.adoc)
 3. [Arquitectura de Contenedores](./03-architecture.adoc)
 4. [Kubernetes and Openshift](./orchestration.adoc).
-5. [Demo - Deploy Apps con Podman](./demo-deploy.adoc)
+5. [Deploy de aplicaciones con Podman](./demo-deploy.adoc)
 6. [Container Lifecycle con Podman](./06-lifecycle-podman.adoc)
 7. [Persistent Storage](./07-persistent-storage.adoc)
 8. [Networking](./08-networking.adoc)
