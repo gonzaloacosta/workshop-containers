@@ -1,0 +1,26 @@
+id: "workshop"
+name: "Worshop de Contenedores"
+
+content:
+  url: https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master
+
+vars:
+  OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/3.7"
+  OPENSHIFT_MASTER_URL: "http://api.ocp4.labs.semperti.local:8443"
+  OPENSHIFT_USERNAME: "admin"
+  OPENSHIFT_PASSWORD: "redhat123!"
+  JAVA_APP: true
+  
+modules:
+  activate:
+  - 01_container_intro
+  - 02_container_technologies
+  - 03_container-architecture
+  - 04_container_orchestration
+  - 05_container_demo_deploy
+  - 06_container_life_cycle_con_podman
+  - 07_container_persistent_storage
+  - 08_container_networking
+  - 09_container_image_registries
+  - 10_container_dockerfile
+  - 11_resenas
