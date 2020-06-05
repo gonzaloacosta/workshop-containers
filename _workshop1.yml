@@ -13,6 +13,6 @@ vars:
   
 modules:
   activate:
-  - lab1
-  - lab2
+  - intro
+  - technologies
   - lab3

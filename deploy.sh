@@ -1,4 +1,4 @@
-$ oc new-app quay.io/osevg/workshopper --name=myworkshop1 \
+oc new-app quay.io/osevg/workshopper --name=myworkshop \
       -e WORKSHOPS_URLS="https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/_workshop1.yml" \
       -e JAVA_APP=false 
-$ oc expose svc/myworkshop1
+oc expose svc/myworkshop

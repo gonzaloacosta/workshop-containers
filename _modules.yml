@@ -3,10 +3,10 @@ config:
 
 modules:
   intro:
-    name: Getting Started
+    name: Getting Started with Containers
   technologies:
     name: Container Technologies
   lab3:
     name: Create an Application
     requires:
-      - lab2
+      - technologies
