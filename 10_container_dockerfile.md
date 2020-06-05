@@ -1,0 +1,79 @@
+## 1.9. Custom Images con Dockerfiles<a name="1.9"></a>
+
+Un Dockerfile es un mecanismo para el creado de imagenes de contenedores automatizado. La contrusccion cuenta con tres pasos bases:
+
+#### 1. Working Directory
+Es un directorio de trabajo con todos los archivos necesarios para la construccion de la imagen.
+
+#### 2. Dockerfile
+Archivo de texto que contiene todas las instrucciones para construir nuestra imagen. La primer instruccion luego del los comentarios es FROM
+
+```
+# Apache custom images
+FROM rhel
+LABEL description="Imagen custom para workshop"
+MAINTAINER Gonzalo Acosta <gonzalo.acosta@semperti.com>
+RUN yum -y install httpd
+EXPOSE 80
+ENV LogLevel "info"
+ADD https://gitlab.semperti.com/gonzalo.acosta/workshop-openshift-administration/raw/master/ejercicios/01/index.html /var/www/html/
+COPY ./src/about.html /var/www/html/about.html
+USER apache
+ENTRYPOINT ["/usr/sbin/httpd"]
+CMD ["-D", "FOREGROUND"]
+```
+Algunas consideraciones sobres las instrucciones.
+
+#### ENTRYPOINT and CMD
+Hay dos maneras de poder definir estas dos directiva.
+
+- Exec form
+```
+ENTRYPOINT ["command", "param1", "param2"]
+CMD ["param1", "param2"]
+```
+- Shell form:
+```
+ENTRYPOINT command param1 param2
+CMD param1 param2
+```
+
+> Nota: Nunca se debe usar uan combinacion de las dos formas, siempre una u otra.
+
+> Recomendacion: Usar de manera conjunta las dos ENTRYPOINT continuado de CMD, esto permite que cuando hagamos `podman run httpd-small ARG1` el parametro escrito en CMD pueda ser reemplazado con un argumento continuado del `run` donde `ARG1` reemplaza el argument definido en el dockerfile.
+
+#### ADD and COPY
+Se pueden definir de la forma Exec como Shell, las dos opciones sirven para poder agregar archivos a la imagen del contenedor. La particularidad de `ADD` es que si manejamos un archivo comprimido/empaquetado es posible desempaquetarlo en destino, `COPY` no permite la descompresion.
+
+> NOTA: Luego de copiar los archivos siempre es recomendable cambiar con `RUN` los permisos copiado con COPY y ADD. Ambos copian archivos reteniendo los permisos, con root como owner.
+
+#### Layers!
+
+Cada instruccion en el Dockerfile crea un layer sobre la nueva imagen. Si tenemos un Dockerfile con muchas instrucciones este tendra una gran cantidad de layers en la imagen resultado. 
+
+Por esto mismo y para tener la menor cantidad de layer en una imagen es recomendable reemplazar estas acciones consecutivas:
+
+```
+RUN yum --disablerepo=* --enablerepo="rhel-7-server-rpms"
+RUN yum update -y
+RUN yum install -y httpd
+```
+
+por una sola instruccion que genera un solo layer.
+```
+RUN yum --disablerepo=* --enablerepo="rhel-7-server-rpms" && \
+    yum update -y && \
+    yum install -y httpd
+```
+#### 3. Build Image con podman
+Podman posee un subcomando `podman build` para poder hacer el build de las imagenes.
+
+```
+sudo podman build -t http-small:latest ./httpd-small
+```
+### [Ejercicio - Dockerfiles ](#ejercicios/01/README.md)
+
+### [Footnotes](https://semperti.com)
+
+Autor: Gonzalo Acosta
+email: gonzalo.acosta@semperti.com

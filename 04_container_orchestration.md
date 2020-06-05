@@ -1,0 +1,39 @@
+## 1.4. Kubernetes and Openshift <a name="1.3"></a>
+
+### Limitaciones en el uso de contenedores
+
+Cuando el numero de contenedores administrado por la organizacion crece, el trabajo manual comienza a ser exponencial lo que trae potenciales errores en la administracion. Cuando se utilizan contenedores en produccion las organizaciones requieren:
+
+- Una facil comunicacion entre el gran numero de servicios.
+- Limitar recursos de aplicacion, independientemente del numero de contenedores que se ejecuten.
+- Responder a los picos de consumo incrementando y decrementando los contenedores que se ejecuten.
+- Reaccionar al deterioro de servicio.
+- Despliegues de manera gradual sobre los nuevos releases.
+
+### Kubernetes Overview
+
+Kubernetes es un servicio de orquestacion de contenedores que simplifica el despliegue, administracion y escalado de aplicacioens basadas en contenedores.
+
+La unidad mas pequena que es adminsitrada en kubernetes es el pod. Un pod consisten en uno o mas contenedores con su storage e ip que representan a una aplicacion. Kubernetes usa los pods para orquestar los contenedores dentro de el y limitar los recursos en una simple unidad. 
+
+### Kubernetes Features
+
+Kubernetes ofrece las siguientes caracteristicas por sobre el container runtime.
+
+- Service discovery and load balancing.
+- Horizontal scaling
+- Self-healing
+- Automated rollout
+- Secrets and configuration management
+- Operators
+
+### Openshift Overview
+
+Red Hat Openshift Container Platform (RHOCP) es un conjunto de componentes modulares y servicios sobre Kubernetes. Openshift agrega caracteristicas que transforman a Kubernetes en un PaaS production ready. Openshift ofrece mejores en los siguientes aspectos:
+
+- Routes
+- Multitenancy
+- Security
+- Metrics and Logging.
+- Integrated developer workflow.
+- Unified UI
