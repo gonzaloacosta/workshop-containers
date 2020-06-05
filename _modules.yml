@@ -1,9 +1,9 @@
 modules:
-  cap1-intro:
+  01-intro:
     name: Introduccion al Workshop
-  cap2-technologies:
+  02-technologies:
     name: Tecnologia de Contenedores
-  cap3-architecture:
+  03-architecture:
     name: Arquitectura de Contenedores
   cap4-orchestration:
     name: Kubernetes and Openshift
