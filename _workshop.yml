@@ -13,9 +13,9 @@ vars:
   
 modules:
   activate:
-  - cap1-intro
-  - cap2-technologies
-  - cap3-architecture
+  - 01-intro
+  - 02-technologies
+  - 03-architecture
   - cap4-orchestration
   - cap05-demo-deploy
   - cap06-life-cycle-con-podman
