@@ -8,7 +8,7 @@ vars:
   OPENSHIFT_DOCS_BASE: "https://docs.openshift.com/container-platform/4.4"
   OPENSHIFT_MASTER_URL: "https://api.ocp4.labs.semperti.local:6443"
   OPENSHIFT_USERNAME: "admin"
-  OPENSHIFT_PASSWORD: "redhat123!"
+  OPENSHIFT_PASSWORD: "XXXXXXX"
   #JAVA_APP: true
   
 modules:
@@ -16,11 +16,11 @@ modules:
   - 01-intro
   - 02-technologies
   - 03-architecture
-  - cap4-orchestration
-  - cap5-demo-deploy
-  - cap6-life-cycle-con-podman
-  - cap7-persistent-storage
-  - cap8-networking
-  - cap9-image-registries
-  - cap10-custom-dockerfile
-  - cap11-resenas
+  - 04-orchestration
+  - 05-demo-deploy
+  - 06-life-cycle-con-podman
+  - 07-persistent-storage
+  - 08-networking
+  - 09-image-registries
+  - 10-custom-dockerfile
+  - 11-resenas

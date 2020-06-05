@@ -5,19 +5,19 @@ modules:
     name: Tecnologia de Contenedores
   03-architecture:
     name: Arquitectura de Contenedores
-  cap4-orchestration:
+  04-orchestration:
     name: Kubernetes and Openshift
-  cap5-demo-deploy:
+  05-demo-deploy:
     name: Demo Deploy Apps con Podman
-  cap6-lifecycle-podman:
+  06-lifecycle-podman:
     name: Container Lifecycle con Podman
-  cap7-persistent-storage:
+  07-persistent-storage:
     name: Persistent Storage
-  cap8-networking:
+  08-networking:
     name: Networking
-  cap9-image-registries:
+  09-image-registries:
     name: Images and Registries
-  cap10-custom-dockerfile:
+  10-custom-dockerfile:
     name: Dockerfile and Custom Images
-  cap11-resenas:
+  11-resenas:
     name: Resenas
