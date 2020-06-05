@@ -18,7 +18,7 @@ modules:
   - 03-architecture
   - 04-orchestration
   - 05-demo
-  - 06-life-cycle-podman
+  - 06-lifecycle-podman
   - 07-persistent-storage
   - 08-networking
   - 09-image-registries
