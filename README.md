@@ -19,11 +19,10 @@ Workshop de adminsitracion de Openshift de 0 a 100 en 5 dias.
 
 ```
 oc new-app osevg/workshopper:latest --name=workshop-containers \
-    -e WORKSHOPS_URLS=https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/_workshop.yml \
-    -e JAVA_APP=false 
+        -e CONTENT_URL_PREFIX=https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master \
+        -e WORKSHOPS_URLS=https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/_worshop.yml
 oc expose svc/workshop-containers
 ```
-
 ### [Footnotes](https://semperti.com)
 
 Autor: Gonzalo Acosta
