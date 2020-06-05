@@ -1,0 +1,4 @@
+## Introduccion a la tecnologia de contenedores 
+
+### Objetivo
+El objetivo del siguiente workshop es poder reconocer y analizar las tecnologias que intervienen en el despliegue de aplicaciones basadas en contenedores y la diferencia respecto a los despliegues tradicionales.

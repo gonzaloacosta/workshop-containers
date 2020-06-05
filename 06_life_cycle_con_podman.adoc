@@ -1,65 +1,80 @@
 ## Ciclo de vida de contenedores con podman
 
-*Podman managing subcommands*
-![Podman managing subcommands](images/podman-1.png)
+_Podman managing subcommands_
 
-*Podman query subcommands*
-![Podman query subcommands](images/podman-2.png)
+image::images/podman-1.png[Podman managing subcommands, width=600]
 
-### Resumen de comandos para administracion
+
+_Podman query subcommands_
+
+image::images/podman-2.png[Podman managing subcommands, width=600]
+
+#### Resumen de comandos para administracion
 
 Crear contenedor
-```
+
+[source,shell]
+----
 sudo podman run rhscl/httpd-24-rhel7
-```
+----
 
 Estado de contenedor
-```
+[source,shell]
+----
 sudo podman ps -a
-```
+----
 
 Comando dentro de contenedor
-```
+[source,shell]
+----
 sudo podman exec httpd-small cat /etc/hostname
 suod podman exec -l cat /etc/hostname
-```
+----
 
 Inspeccionar metadata de contenedor. Output JSON
-```
+[source,shell]
+----
 sudo podman inspect httpd-small
-```
+----
 
 IPAdress de Contenedor
-```
+[source,shell]
+----
 sudo podman inspect -f '{{.NetworkSettings.IPAdrees}}' httpd-small
-```
+----
 
 Stop Container
-```
+[source,shell]
+----
 sudo podman stop httpd-small
-```
+----
 
 Enviar SIGNAL
-```
+[source,shell]
+----
 sudo podman kill -s <SIGNAL ID> httpd-small
-```
+----
 
 Restart
-```
+[source,shell]
+----
 sudo podman restart httpd-small
-```
+----
 
 Remover contenedor
-```
+[source,shell]
+----
 sudo podman rm httpd-small
-```
+----
 
 Remover imagen
-```
+[source,shell]
+----
 sudo podman rmi <image id>
-```
+----
 
 Logs
-```
+[source,shell]
+----
 sudo podman logs httpd-small
-```
+----

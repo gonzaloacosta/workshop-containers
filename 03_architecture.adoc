@@ -2,6 +2,9 @@
 
 En el 2001 linux introduce el proyecto de vServers en la comunidad. vServers fue la primer intento de ejecutar un conjunto de procesos dentro de un unico servidor con un alto nivel de aislamiento. Con los vServers la idea de aislar procesos marco el camino para la evolucion de una serie de features del kernel de linux:
 
+image::images/containers-1.png[Containers Architecture, width=600]
+
+#### Features
 - *Namespaces*: El kernel puede aislar recursos especificos de sistemas, usualmente visibles por todos los procesos y colocarlos dentro de un espacio de nombres. Dentro del espacio de nombres solo los procesos que son mienbros pueden ver los recursos. Los espacios de nombre pueden incluir espacios de red, interfaces, process id, puntos de montaje, recursos de IPC y informacion del host de sistem.
 - *Control Groups (cgroups)*: Los cgroups imponen restricciones sobre la cantidad de recursos del sistema qeu los procesos podrían usar. Estas restricciones permiten proteger los recursos del sistema.
 - *Seccomp*: Seccomp limita como pueden los procesos consumir las system calls. Seccomp define un security profile para procesos. Whitelisling de syscalls, params y file descriptors que son permitidos para usar.
@@ -9,33 +12,34 @@ En el 2001 linux introduce el proyecto de vServers en la comunidad. vServers fue
 
 Toda esta serie de caracteristicas de kernel con el fin de poder aislar procesos de sistema y proteger recursos. Ahora bien, desde la perspectiva del kernel, un contenedor es un procesos con restricciones. Sin embargo, en lugar de correr un binario, corre una imagen. La imagen es un bundle de archivos de sistema que contiene toda las dependencias requeridas para ejectuar el proceso.
 
-> Executable files >> Running Process
-
-> Images >> Runnming Containers.
+* Executable files >> Running Process
+* Images >> Runnming Containers.
 
 Correr containers a partir de una imagen inmutable brinda la posibilidad de poder reutilizar la misma imagen de manera simultanea para multiples containers. Estas imagenes son bundle de archivos que pueden ser adminsitrador por un sistema de control de version.
 
 Las imagenes de contenedores necesitan ser alojadas de manera local para que el container runtime pueda ejecutar un container. Un repositorio de imagenes es un servicio -publico o privado- donde pueden ser almacenadas para luego ser consumidas.
 
-### Images registry
+#### Images registry
 - Quay.io
 - DockerHub
 - Google Container Registry
-- Amazon Elastic Container Registry.
+- Amazon Elastic Container Registry
 
-### Managing Containers with Podman
-
+#### Managing Containers with Podman
 Podman is una herramienta open source para adminsitrar containers, image containers e interacturar con images registry. 
 
-Ventajas:
-- OCI Compliance. Standard, community-driven, non-propietary image format.
-- Podman almacena de manera local las imagenes de los contenedores. Evitando architecturas client/server y demonios locales.
-- Podman sigue las mismas especificaciones que Docker CLI.
-- Podman es compatible con kubernetes y kubernetes puede usar podman para manejear contenedores.
+Ventajas del uso de podman.
 
-```
+* OCI Compliance. Standard, community-driven, non-propietary image format.
+* Podman almacena de manera local las imagenes de los contenedores. Evitando architecturas client/server y demonios locales.
+* Podman sigue las mismas especificaciones que Docker CLI.
+* Podman es compatible con kubernetes y kubernetes puede usar podman para manejear contenedores.
+
+[source,shell]
+----
 sudo yum -y install podman
 sudo dnf -y install podman
-```
+----
+
 ### Referencias
-- [podman.io](#https://podman.io)
+- https://podman.io[podman.io]

@@ -1,108 +1,123 @@
-## Demo podman
-1. [Administracion de contenedores](#1.0)
-    1. [Podman install](#1.1)
-    2. [Images Container](#1.2)
-    3. [Running Containers](#1.3)
-    4. [Crear Service DB y HTTP](#1.4)
-    5. [Container Storage](#1.5)
-    5. [Dockerfiles](#1.6)
+### Administracion de contenedores
 
-## 1 Ejercicios Dia 1 <a name="1.0"></a>
-Texto texto texto
+1. Podman install
+2. Images Container
+3. Running Containers
+4. Crear Service DB y HTTP
+5. Container Storage
+5. Dockerfiles
 
-### 1.1 Podman install
 
-```
+#### 1 Podman install
+
+[source,shell]
+----
 sudo yum -y install podman
-```
+----
 
-### 1.2 Images Container
+### 2 Images Container
 
 Buscamos imagenes
-```
+[source,shell]
+----
 sudo podman search rhel
-```
+----
 
 Sintaxis de imagen
-```
+[source,shell]
+----
 <registry_name>/<user_name?>/<image_name>:<tag_name>
-```
+----
 
 Descarmamos imagen de manera local
-```
+[source,shell]
+----
 sudo podman pull rhel
-```
+----
 
 Listamos las imagenes descargadas
-```
+[source,shell]
+----
 sudo podman images
-```
+----
 
-### 1.3 Running container
+#### 3 Running container
 
 Ejecutamos un comando dentro de un contenedor
-```
+[source,shell]
+----
 sudo podman run rhel echo "Hola Mundo!"
-```
+----
 
 Ejecutamos un servicio dentro de un contenedor
-```
+[source,shell]
+----
 sudo podman run -d rhscl/httpd-24-rhel7
-```
+----
 
 Inspeccionamos la configuracion de un contenedor
-```
+[source,shell]
+----
 sudo podman inspect -l -f "{{.NetworkSettings.IPAddress}}"
-```
+----
 
 Terminal en un pod
-```
+[source,shell]
+----
 -i interact
 -t tty
-```
-```
+----
+[source,shell]
+----
 sudo podman run -it rhel7 /bin/bash
-```
+----
 
 Variables de entorno en el momento de la ejecucion
-```
+[source,shell]
+----
 sudo podman run -e HELLO=hola -e NAME=gonzalo rhel printenv HELLO NAME
-```
+----
 
 Otro ejemplo lanzando una base de datos MYSQL
-```
+[source,shell]
+----
 sudo podman run --name mysql -e MYSQL_USER=user -e MYSQL_PASSWORD=pass1 -d mysql:5.5
-```
+----
 
 Listamos y borramos todos los contenedores que quedaron stopeados
-```
+[source,shell]
+----
 for i in $(sudo podman ps -a | grep -v CONTAINER | awk '{print $1}') ; do sudo podman stop $i ; sudo podman rm $i ; done
-```
+----
 
-### 1.4 Creamos una aplicacion
+#### 4 Creamos una aplicacion
 
 Creamos una base de datos mysql
-```
+[source,shell]
+----
 sudo podman run --name mysql-small \
     --e MYSQL_USER=user1 \
     -e MYSQL_PASSWORD=pass1 \
     -e MYSQL_DATABASE=stock \
     -e MYSQL_ROOT_PASSWORD=root123 -d \
     rhscl/mysql-57-rhel7
-```
+----
 
 Chequeamos que el contenedor este corriendo
-```
+[source,shell]
+----
 sudo podman ps -a
-```
+----
 
 Ejecutamos un comando dentro del contenedor para ver la base de datos creada
-```
+[source,shell]
+----
 sudo podman exec -it mysql-small /bin/bash
-```
+----
 
 Revisamos la base de datos
-```
+[source,shell]
+----
 [gonza@centos ~]$ sudo podman exec -it mysql-small /bin/bash
 bash-4.2$ mysql -uroot
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -153,87 +168,104 @@ mysql> select * from inventory;
 1 row in set (0.00 sec)
 
 mysql> exit
-```
+
+----
 
 Ejecutamos un servidor web en el puerto 8080
-```
- -p <host port>:<container port>
-```
 
-```
+[source,shell]
+----
+ -p <host port>:<container port>
+----
+
+[source,shell]
+----
 sudo podman run -d -p 8080:8080 --name httpd-small httpd:2.4
-```
+----
 
 Chequemos que el contenedor este corriendo
-```
+
+[source,shell]
+----
 sudo podman ps -a
-```
+----
 
-> Nota: la columna PORT debe tener el detalle del puerto.
+* _Nota_: la columna PORT debe tener el detalle del puerto. Debe abrir los puertos en el host donde corre el contenedor en caso de que tenga un firwall local corriendo.
 
-> Debe abrir los puertos en el host donde corre el contenedor en caso de que tenga un firwall local corriendo. 
-```
+[source,shell]
+----
 sudo firewall-cmd --add-port=8080/tcp --permanent
 sudo firewall-cmd --reload
-```
+----
 
 Probamos la aplicacion
-```
+[source,shell]
+----
 curl http://localhost:8080
-```
+----
 
 Creamos un index para identificar nuestra pagina
-```
+[source,shell]
+----
 sudo podman exec -it httpd-small /bin/bash
 curl http://localhost:8080/
 Hola Mundo!!!!
-```
+----
 
-## 1.5 Container Storage
+#### 5 Container Storage
 
 Creamos un directorio donde vamos a persistir informacion
-```
+[source,shell]
+----
 sudo mkdir /var/db
-```
+----
 
 En el caso de MySQL tomado del repositorio de Red Hat el contenedor corre con el UID 27.
-```
+[source,shell]
+----
 sudo chown -R 27:27 /var/db
-```
+----
 
 Aplicamos el contexto de SELinux al directorio 
-```
+[source,shell]
+----
 semanage fcontext -a -t container_file_t '/var/db(/.*)?'
-```
+----
 
 Aplicamos SELinux policy
-```
+[source,shell]
+----
 restorecon -Rv /var/db
-```
+----
 
 Chequemos los permisos.
-```
+[source,shell]
+----
 ls -dZ /var/local/mysql
-```
+----
+
 Montamos el volumen
-```
+[source,shell]
+----
 sudo podman run --name persist-db -d -v /var/db:/var/lib/mysql/data -e MYSQL_USER=user1 -e MYSQL_PASSWORD=pass1 -e MYSQL_DATABASE=items -e MYSQL_ROOT_PASSWORD=toor rhscl/mysql-57-rhel7
-```
+----
 
-```
-sudo podman ps --format="table {{.ID}} {{.Names}} {{.Status}}
-```
+----
+sudo podman ps --format="table {{.ID}} {{.Names}} {{.Status}}"
+----
 
-## 1.6. Dockerfiles
+#### 6. Dockerfiles
 
 1. Creamos el directorio de trabajo
-```
+[source,shell]
+----
 mkdir $HOME/httpd-small/
 cd $HOME/httpd-small/
-```
+----
 
 2. Creamos el dockerfile dentro del directorio.
-```
+[source,shell]
+----
 cat < EOF > Dockerfile
 # Comentario con instrucciones
 FROM centos
@@ -249,24 +281,20 @@ EXPOSE ${PORT}
 ADD about.html /var/www/html/
 CMD ["httpd", "-D", "FOREGROUND"]
 EOF
-```
+----
 
 3. Build de la imagen.
-```
+[source,shell]
+----
 sudo podman build -t httpd-small:lates .
-```
+----
 
 4. Test
-```
+[source,shell]
+----
 $ curl http://localhost:8080/about.html
 About me!
-```
-
-
-### [Footnotes](https://semperti.com)
-
-Autor: Gonzalo Acosta
-email: gonzalo.acosta@semperti.com
+----
 
 
 

@@ -1,4 +1,4 @@
-## 1.9. Custom Images con Dockerfiles<a name="1.9"></a>
+## Custom Images con Dockerfiles
 
 Un Dockerfile es un mecanismo para el creado de imagenes de contenedores automatizado. La contrusccion cuenta con tres pasos bases:
 
@@ -8,7 +8,8 @@ Es un directorio de trabajo con todos los archivos necesarios para la construcci
 #### 2. Dockerfile
 Archivo de texto que contiene todas las instrucciones para construir nuestra imagen. La primer instruccion luego del los comentarios es FROM
 
-```
+[source,shell]
+----
 # Apache custom images
 FROM rhel
 LABEL description="Imagen custom para workshop"
@@ -21,22 +22,27 @@ COPY ./src/about.html /var/www/html/about.html
 USER apache
 ENTRYPOINT ["/usr/sbin/httpd"]
 CMD ["-D", "FOREGROUND"]
-```
+----
+
 Algunas consideraciones sobres las instrucciones.
 
 #### ENTRYPOINT and CMD
 Hay dos maneras de poder definir estas dos directiva.
 
 - Exec form
-```
+
+[source,shell]
+----
 ENTRYPOINT ["command", "param1", "param2"]
 CMD ["param1", "param2"]
-```
+----
+
 - Shell form:
-```
+[source,shell]
+----
 ENTRYPOINT command param1 param2
 CMD param1 param2
-```
+----
 
 > Nota: Nunca se debe usar uan combinacion de las dos formas, siempre una u otra.
 
@@ -53,27 +59,25 @@ Cada instruccion en el Dockerfile crea un layer sobre la nueva imagen. Si tenemo
 
 Por esto mismo y para tener la menor cantidad de layer en una imagen es recomendable reemplazar estas acciones consecutivas:
 
-```
+[source,shell]
+----
 RUN yum --disablerepo=* --enablerepo="rhel-7-server-rpms"
 RUN yum update -y
 RUN yum install -y httpd
-```
+----
 
 por una sola instruccion que genera un solo layer.
-```
+[source,shell]
+----
 RUN yum --disablerepo=* --enablerepo="rhel-7-server-rpms" && \
     yum update -y && \
     yum install -y httpd
-```
+----
 #### 3. Build Image con podman
 Podman posee un subcomando `podman build` para poder hacer el build de las imagenes.
 
-```
+----
 sudo podman build -t http-small:latest ./httpd-small
-```
+----
 ### [Ejercicio - Dockerfiles ](#ejercicios/01/README.md)
 
-### [Footnotes](https://semperti.com)
-
-Autor: Gonzalo Acosta
-email: gonzalo.acosta@semperti.com
