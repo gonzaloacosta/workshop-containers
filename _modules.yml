@@ -6,7 +6,21 @@ modules:
     name: Getting Started with Containers
   technologies:
     name: Container Technologies
-  lab3:
-    name: Create an Application
-    requires:
-      - technologies
+  architecture:
+    name: Arquitectura de Contenedores
+  orchestration:
+    name: Kubernetes and Openshift
+  demo_deploy:
+    name: Demo Deploy Apps con Podman
+  life_cycle_con_podman:
+    name: Container Lifecycle con Podman
+  persistent_storage:
+    name: Persistent Storage
+  networking:
+    name: Networking
+  image_registries:
+    name: Images and Registries
+  custom_dockerfile:
+    name: Dockerfile and Custom Images
+  resenas:
+    name: Resenas

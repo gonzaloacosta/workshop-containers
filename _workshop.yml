@@ -1,5 +1,5 @@
-id: "workshop1"
-name: "OpenShift Workshop"
+id: "containers"
+name: "Containers Workshop"
 
 content:
   url: https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master
@@ -15,4 +15,12 @@ modules:
   activate:
   - intro
   - technologies
-  - lab3
+  - architecture
+  - orchestration
+  - demo_deploy
+  - life_cycle_con_podman
+  - persistent_storage
+  - networking
+  - image_registries
+  - custom_dockerfile
+  - resenas
