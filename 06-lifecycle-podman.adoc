@@ -1,5 +1,7 @@
 ## Ciclo de vida de contenedores con podman
 
+#### Resumen de comandos para administracion
+
 _Podman managing subcommands_
 
 image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/images/podman-1.png[Podman managing subcommands, width=600]
@@ -8,8 +10,6 @@ image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/maste
 _Podman query subcommands_
 
 image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/images/podman-2.png[Podman managing subcommands, width=600]
-
-#### Resumen de comandos para administracion
 
 Crear contenedor
 

@@ -7,8 +7,8 @@ Workshop de adminsitracion de contenedores con Podman
 1. [Intro](./01-intro.adoc)
 2. [Tecnologia de Contenedores](./02-technologies.adoc)
 3. [Arquitectura de Contenedores](./03-architecture.adoc)
-4. [Kubernetes and Openshift](./orchestration.adoc).
-5. [Deploy de aplicaciones con Podman](./demo-deploy.adoc)
+4. [Kubernetes and Openshift](./04-orchestration.adoc).
+5. [Deploy de aplicaciones con Podman](./05-demo.adoc)
 6. [Container Lifecycle con Podman](./06-lifecycle-podman.adoc)
 7. [Persistent Storage](./07-persistent-storage.adoc)
 8. [Networking](./08-networking.adoc)
