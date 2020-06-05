@@ -7,7 +7,7 @@ modules:
     name: Arquitectura de Contenedores
   04-orchestration:
     name: Kubernetes and Openshift
-  05-demo-deploy:
+  05-demo:
     name: Demo Deploy Apps con Podman
   06-lifecycle-podman:
     name: Container Lifecycle con Podman

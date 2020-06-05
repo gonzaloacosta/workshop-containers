@@ -2,12 +2,12 @@
 
 _Podman managing subcommands_
 
-image::images/podman-1.png[Podman managing subcommands, width=600]
+image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/images/podman-1.png[Podman managing subcommands, width=600]
 
 
 _Podman query subcommands_
 
-image::images/podman-2.png[Podman managing subcommands, width=600]
+image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/images/podman-2.png[Podman managing subcommands, width=600]
 
 #### Resumen de comandos para administracion
 

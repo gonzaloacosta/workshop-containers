@@ -4,7 +4,7 @@ De forma habitual las aplicaciones de software dependen de librerias, archivos d
 
 Este metodo trae algunos problemas cuando por ejemplo ser realizan actualizaciones del sistema, cuando son portadas a otras maquinas, o cuando se eliminan dependencias. En el momento de la actualizacion, es probable que la aplicacion deba bajarse para poder proceder. Esto trae bajas de servicio que no son deseadas.
 
-image::images/containers-1.png[Containers Architecture, width=600]
+image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/images/containers-1.png[Containers Architecture, width=600]
 
 Alternativamente las aplicaciones pueden ser desplegadas en contenedores. Un contenedor es un set de uno o mas procesos de manera aislada del resto del sistema. Los contendores proveen los mismo beneficios que las maquinas virtuales como seguridad, storage, networking aislado.
 

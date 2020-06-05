@@ -52,7 +52,7 @@ Podman usa CNI para implementar la software-define network (SDN) para contenedor
 
 Cuando un pod es creado se le asigna una ip de la red 10.88.0.0/16 en le host, este contenedor pude comunicarse libremente con otros containers por la ip de pods. Esta pequena topologia de red se la llama SDN de host. Los contendores creados con podman en host diferentes no pueden comunicarse entre ellos, las SDN de cada host son indipendientes. Es importante notar que todos los pods estan ocultos de la red del host. La red 10.88.0.0/16 es una red NO RUTEADA.
 
-image::images/container-networking-1.png[Container Networking, width=600]
+image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/images/container-networking-1.png[Container Networking, width=600]
 
 
 La ip del pod la podemos ver realizando el inspect.
@@ -70,4 +70,4 @@ sudo podman run -d -p 8080:8080 --name httpd-small httpd:2.4
 ----
 
 
-image::images/container-networking-2.png[Container Networking, width=600]
+image::https://raw.githubusercontent.com/gonzaloacosta/workshop-containers/master/images/container-networking-2.png[Container Networking, width=600]
